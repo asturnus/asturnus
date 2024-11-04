@@ -1,71 +1,70 @@
-# Where things are
-source              : .
-destination         : ./_site
-collections_dir     : .
-plugins_dir         : _plugins # takes an array of strings and loads plugins in that order
-layouts_dir         : _layouts
-data_dir            : _data
-includes_dir        : _includes
-sass:
-  sass_dir: _sass
-collections:
-  posts:
-    output          : true
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
 
-# Handling Reading
-safe                : false
-include             : [".htaccess"]
-exclude             : ["Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"]
-keep_files          : [".git", ".svn"]
-encoding            : "utf-8"
-markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
-strict_front_matter : false
+title: Sturnus Vulgaris
+description: 
+github_username: asturnus
 
-# Filtering Content
-show_drafts         : null
-limit_posts         : 0
-future              : false
-unpublished         : false
+url: "https://asturnus.one"
+baseurl: ""
 
-# Plugins
-whitelist           : []
-plugins             : []
+# Github and twitter are optional:
+minima:
+  social_links:
+    github: asturnus
 
-# Conversion
-markdown            : kramdown
-highlighter         : rouge
-lsi                 : false
-excerpt_separator   : "\n\n"
-incremental         : false
+# Set this to true to get LaTeX math equation support
+use_math: true
 
-# Serving
-detach              : false
-port                : 4000
-host                : 127.0.0.1
-baseurl             : "" # does not include hostname
-show_dir_listing    : false
+# Set this to true to display the summary of your blog post under your title on the Home page.
+show_description: true
 
-# Outputting
-permalink           : date
-paginate_path       : /page:num
-timezone            : null
+# Set this to true to display image previews on home page, if they exist
+show_image: false
 
-quiet               : false
-verbose             : false
-defaults            : []
+# Set this to true to display tags on each post
+show_tags: true
 
-liquid:
-  error_mode        : warn
-  strict_filters    : false
-  strict_variables  : false
+# Add your Google Analytics ID here if you have one and want to use it
+google_analytics: UA-160409032-1
 
-# Markdown Processors
+exclude:
+  - docker-compose.yml
+  - action.yml
+  - Makefile
+
+# this setting allows you to keep pages organized in the _pages folder
+include:
+  - _pages
+
+# Everything below here should be left alone. Modifications may break fastpages
+future: true
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-octicons
+  - jekyll-toc
+  - jekyll-relative-links
+  - jekyll-remote-theme
+
+remote_theme: jekyll/minima
+
+titles_from_headings:
+  enabled: true
+  strip_title: true
+  collections: true
+
+highlighter: rouge
+markdown: kramdown
 kramdown:
-  auto_ids          : true
-  entity_output     : as_char
-  toc_levels        : [1, 2, 3, 4, 5, 6]
-  smart_quotes      : lsquo,rsquo,ldquo,rdquo
-  input             : GFM
-  hard_wrap         : false
-  footnote_nr       : 1
-  show_warnings     : false
+  math_engine: katex
+  input: GFM
+  auto_ids: true
+  hard_wrap: false
+  syntax_highlighter: rouge
